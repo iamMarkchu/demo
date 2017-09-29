@@ -1,0 +1,4 @@
+<?php 
+$a = 'a:8:{s:3:"tit";s:7:"Dell UK";s:3:"des";s:128:"Provides custom configuration of personal computers, portables and servers. Offers parts, support and advice for existing users.";s:3:"add";s:11:"23-Sep-1995";s:3:"adu";s:2:"no";s:3:"cat";a:1:{i:0;s:41:"Computers and Internet/Sales and Services";}s:4:"rank";a:3:{s:2:"GB";a:3:{s:1:"r";s:4:"6466";s:1:"p";s:5:"84.0%";s:1:"u";s:5:"83.5%";}s:2:"FR";a:3:{s:1:"r";s:6:"122352";s:1:"p";s:4:"2.6%";s:1:"u";s:4:"2.7%";}s:2:"IN";a:3:{s:1:"r";s:6:"169046";s:1:"p";s:4:"2.5%";s:1:"u";s:4:"2.6%";}}s:5:"reach";d:8500000;s:5:"views";d:200000;}';
+
+var_dump(unserialize($a));

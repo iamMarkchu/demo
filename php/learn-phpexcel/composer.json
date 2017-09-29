@@ -1,0 +1,12 @@
+{
+    "name": "mark/learn-phpexcel",
+    "authors": [
+        {
+            "name": "mark",
+            "email": "454085441@qq.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpexcel": "^1.8"
+    }
+}
