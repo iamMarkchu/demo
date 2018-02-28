@@ -1,20 +1,21 @@
-<?php 
+<?php
 /**
  * auth 2.0 第一方
  */
 
-$url = 'http://chukui.com/oauth/token';
+$url = 'http://xplan.dev/oauth/token';
 $data = [
         'grant_type' => 'password',
-        'client_id' => '6',
-        'client_secret' => 'Van0528EwgixJ3qHNMaB7kdbQ8r6GqUkZK3YEhBT',
+        'client_id' => '2',
+        'client_secret' => 'YJElKrhEtpPZGEkmdGKmDmHfIYPAXHpIMBUhGCaH',
         'username' => 'chukui0627@gmail.com',
         'password' => 'chukui',
         'scope' => '',
 ];
 $info = curl($url, $data);
 $info = json_decode($info, TRUE);
-echo $info['access_token'];die;
+
+print_r($info);die;
 
 function curl($url,$posts=""){
     $ch = curl_init();

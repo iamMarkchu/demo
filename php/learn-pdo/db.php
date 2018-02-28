@@ -13,6 +13,11 @@ class db
     {
         try {
             $pdo = new PDO($config['dsn'], $config['username'], $config['password']);
+            define('DEBUG_MODE', TRUE);
+            if(DEBUG_MODE)
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            else
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
             $this->setPdo($pdo);
         }catch (PDOException $e)
         {
@@ -22,39 +27,23 @@ class db
     }
 
     /**
-     * @param null $pdo
+     * @param Pdo $pdo
      */
-    public function setPdo($pdo)
+    public function setPdo(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
 
     /**
-     * @return null
+     * @return Pdo
      */
     public function getPdo()
     {
         return $this->pdo;
     }
 
-    public function getAllCelebrities()
+    public function close()
     {
-        $sql = "select * from fs_celebrities";
-        $stat = $this->pdo->query($sql);
-        return $stat->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getPostsByCid($cid)
-    {
-        $sql = "select * from fs_styles where cid = ".$cid;
-        $stat = $this->pdo->query($sql);
-        return $stat->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public  function getProductsByPid($pid)
-    {
-        $sql = "select * from fs_products where sid = ".$pid;
-        $stat = $this->pdo->query($sql);
-        return $stat->fetchAll(PDO::FETCH_ASSOC);
+        $this->pdo = null;
     }
 }
